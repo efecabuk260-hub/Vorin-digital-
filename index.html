@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VORIN DIGITAL | Beyond Technology</title>
+<meta name="description" content="Vorin Digital - Technology, Innovation and Future.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+    --bg:#050a0e;
+    --silver:#dce5eb;
+    --blue:#91bfd4;
+    --muted:#82939d;
+    --line:rgba(165,205,225,.17);
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+body {
+    background:var(--bg);
+    color:white;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+/* BACKGROUND */
+.background {
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+    radial-gradient(ellipse at 50% 25%,#152b35 0%,transparent 60%),
+    linear-gradient(180deg,#071116,#030609);
+}
+.circuit {
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    opacity:.15;
+    background-image:
+    linear-gradient(90deg,transparent 49%,#8abbd0 50%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,#8abbd0 50%,transparent 51%);
+    background-size:100px 100px;
+    mask-image:radial-gradient(ellipse,black,transparent 85%);
+}
+.light {
+    position:fixed;
+    width:4px;
+    height:4px;
+    background:#c5edff;
+    border-radius:50%;
+    box-shadow:0 0 15px 5px #6bb6dc;
+    z-index:-2;
+    animation:blink 3s infinite alternate;
+}
+.light:nth-of-type(1){top:20%;left:15%;}
+.light:nth-of-type(2){top:40%;right:15%;animation-delay:1s;}
+.light:nth-of-type(3){top:75%;left:25%;animation-delay:2s;}
+.light:nth-of-type(4){top:15%;right:30%;animation-delay:.5s;}
+@keyframes blink {
+    from{opacity:.1}
+    to{opacity:1}
+}
+/* INTRO */
+.intro {
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#03080c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    animation:introOut 1.1s ease 5.3s forwards;
+}
+.intro-logo {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(27px,7vw,55px);
+    font-weight:600;
+    letter-spacing:9px;
+    background:linear-gradient(180deg,#fff,#8799a3,#e9f0f4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    opacity:0;
+    animation:fadeUp 1.3s ease .4s forwards;
+}
+.intro-line {
+    width:0;
+    height:1px;
+    margin-top:25px;
+    background:linear-gradient(90deg,transparent,#c7e8f6,transparent);
+    animation:lineOpen 1.2s ease 1.4s forwards;
+}
+.intro-owner {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(12px,3vw,18px);
+    letter-spacing:8px;
+    color:#a9c0cd;
+    margin-top:27px;
+    opacity:0;
+    animation:ownerAppear 1s ease 2.7s forwards;
+}
+.intro-caption {
+    font-size:9px;
+    letter-spacing:5px;
+    color:#647e8b;
+    margin-top:15px;
+    opacity:0;
+    animation:ownerAppear 1s ease 3.3s forwards;
+}
+@keyframes fadeUp {
+    from{opacity:0;transform:translateY(25px);filter:blur(8px)}
+    to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@keyframes lineOpen {
+    to{width:260px}
+}
+@keyframes ownerAppear {
+    to{opacity:1}
+}
+@keyframes introOut {
+    to{opacity:0;visibility:hidden}
+}
+/* NAVBAR */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    height:78px;
+    padding:0 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(3,8,12,.91);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+    z-index:1000;
+}
+.nav-brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Orbitron',sans-serif;
+    font-size:16px;
+    letter-spacing:4px;
+    font-weight:600;
+}
+.nav-brand svg {
+    width:32px;
+    height:38px;
+}
+.nav-links {
+    display:flex;
+    gap:26px;
+    list-style:none;
+}
+.nav-links a {
+    color:#9caeb8;
+    font-size:11px;
+    text-decoration:none;
+    letter-spacing:1px;
+    transition:.3s;
+}
+.nav-links a:hover {
+    color:white;
+}
+.menu-btn {
+    display:none;
+    color:white;
+    background:none;
+    border:1px solid var(--line);
+    padding:9px 13px;
+    font-size:18px;
+}
+/* GENERAL */
+section {
+    padding:110px 9%;
+    scroll-margin-top:75px;
+}
+.section-heading {
+    text-align:center;
+    margin-bottom:55px;
+}
+.section-heading small {
+    color:#91b7ca;
+    letter-spacing:5px;
+    font-size:10px;
+}
+.section-heading h2 {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(23px,4vw,34px);
+    font-weight:500;
+    letter-spacing:4px;
+    margin-top:17px;
+}
+.section-heading h2 span {
+    color:#91b7ca;
+}
+.section-heading p {
+    color:var(--muted);
+    font-size:13px;
+    line-height:2;
+    max-width:650px;
+    margin:20px auto 0;
+}
+/* HERO */
+.hero {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:130px 20px 90px;
+}
+.hero-logo {
+    width:130px;
+    height:145px;
+    margin-bottom:35px;
+    filter:drop-shadow(0 0 20px rgba(145,200,225,.3));
+    animation:float 5s ease-in-out infinite;
+}
+@keyframes float {
+    50%{transform:translateY(-9px)}
+}
+.hero h1 {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(42px,9vw,90px);
+    font-weight:600;
+    letter-spacing:12px;
+    background:linear-gradient(180deg,#fff,#8c9da7,#dfe8ed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero h2 {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(13px,3vw,20px);
+    letter-spacing:13px;
+    color:#9cb5c2;
+    margin-top:15px;
+}
+.hero p {
+    max-width:620px;
+    margin-top:35px;
+    color:#8b9ba4;
+    font-size:14px;
+    line-height:2.1;
+}
+.hero-button {
+    margin-top:40px;
+    display:inline-block;
+    border:1px solid #9bbdce;
+    padding:16px 38px;
+    color:#e0edf3;
+    text-decoration:none;
+    letter-spacing:3px;
+    font-size:10px;
+    transition:.4s;
+}
+.hero-button:hover {
+    background:#d3eaf5;
+    color:#071016;
+    box-shadow:0 0 35px #8abbd0;
+}
+/* ABOUT */
+.about-content {
+    max-width:950px;
+    margin:auto;
+}
+.about-text {
+    padding:40px;
+    border:1px solid var(--line);
+    background:rgba(12,25,33,.7);
+    text-align:center;
+}
+.about-text h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:17px;
+    letter-spacing:3px;
+    color:#d9e8ef;
+    margin-bottom:25px;
+}
+.about-text p {
+    color:#91a1aa;
+    font-size:13px;
+    line-height:2.3;
+    margin-bottom:15px;
+}
+/* TABS */
+.tab-container {
+    max-width:950px;
+    margin:50px auto 0;
+}
+.tab-buttons {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+.tab-button {
+    padding:13px 25px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+    color:#899ca6;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+.tab-button.active,
+.tab-button:hover {
+    color:#e6f3f9;
+    border-color:#9ac3d8;
+    background:rgba(120,170,195,.12);
+}
+.tab-content {
+    display:none;
+    padding:35px;
+    background:rgba(12,24,31,.75);
+    border:1px solid var(--line);
+    animation:tabFade .4s ease;
+}
+.tab-content.active {
+    display:block;
+}
+.tab-content h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:17px;
+    color:#c5dce8;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+.tab-content p {
+    font-size:13px;
+    line-height:2.2;
+    color:#91a2ab;
+}
+@keyframes tabFade {
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+}
+/* SERVICES */
+.service-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:1000px;
+    margin:auto;
+}
+.service-card {
+    padding:35px;
+    background:rgba(10,22,29,.8);
+    border:1px solid var(--line);
+    transition:.4s;
+}
+.service-card:hover {
+    transform:translateY(-7px);
+    border-color:#91bcd0;
+    box-shadow:0 10px 35px rgba(120,180,210,.08);
+}
+.service-number {
+    font-family:'Orbitron',sans-serif;
+    color:#8eb5c8;
+    font-size:12px;
+    letter-spacing:3px;
+}
+.service-card h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:15px;
+    letter-spacing:2px;
+    margin:22px 0 15px;
+    color:#dce8ed;
+}
+.service-card p {
+    color:#8798a1;
+    font-size:12px;
+    line-height:2.1;
+}
+/* TECHNOLOGY */
+.tech-box {
+    max-width:950px;
+    margin:auto;
+    padding:45px;
+    border:1px solid var(--line);
+    background:linear-gradient(130deg,rgba(30,50,60,.6),rgba(5,12,17,.8));
+}
+.tech-box h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+.tech-box p {
+    font-size:13px;
+    line-height:2.2;
+    color:#94a6af;
+}
+.tech-tags {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+.tech-tags span {
+    padding:11px 17px;
+    border:1px solid var(--line);
+    color:#b5cbd6;
+    font-size:10px;
+    letter-spacing:1px;
+}
+/* PROJECTS */
+.project-grid {
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+.project-card {
+    min-height:240px;
+    padding:40px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border:1px solid rgba(170,215,235,.25);
+    background:linear-gradient(145deg,#142630,#060d12);
+    transition:.4s;
+}
+.project-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 0 35px rgba(130,190,220,.1);
+}
+.project-card h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:40px;
+    letter-spacing:10px;
+    color:#dceaf0;
+    text-shadow:0 0 20px #8abbd055;
+}
+.project-card p {
+    margin-top:20px;
+    color:#8fa8b5;
+    font-size:11px;
+    line-height:2;
+}
+.project-status {
+    margin-top:25px;
+    font-size:9px;
+    letter-spacing:3px;
+    color:#8cbad0;
+}
+.project-card.upcoming {
+    border-style:dashed;
+    background:rgba(10,20,26,.5);
+}
+.project-card.upcoming h3 {
+    font-size:17px;
+    letter-spacing:4px;
+    color:#8ba0aa;
+}
+/* FUTURE */
+.future-box {
+    max-width:950px;
+    margin:auto;
+    text-align:center;
+    padding:55px 35px;
+    background:rgba(13,26,34,.7);
+    border:1px solid var(--line);
+}
+.future-box h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
+    letter-spacing:4px;
+    color:#d5e5ed;
+    margin-bottom:25px;
+}
+.future-box p {
+    color:#8d9da6;
+    font-size:13px;
+    line-height:2.2;
+}
+/* CONTACT */
+.contact-box {
+    text-align:center;
+    padding:55px 20px;
+    max-width:700px;
+    margin:auto;
+    background:rgba(12,25,32,.7);
+    border:1px solid var(--line);
+}
+.contact-box p {
+    color:#91a1aa;
+    font-size:13px;
+    line-height:2;
+}
+.instagram {
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 32px;
+    border:1px solid #9bbdd0;
+    color:#e2edf2;
+    text-decoration:none;
+    letter-spacing:2px;
+    font-size:12px;
+    transition:.3s;
+}
+.instagram:hover {
+    background:#d2e8f1;
+    color:#071016;
+}
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:55px 20px;
+    background:#03080c;
+    border-top:1px solid var(--line);
+}
+.footer-logo {
+    font-family:'Orbitron',sans-serif;
+    font-size:19px;
+    letter-spacing:6px;
+    color:#dce6eb;
+}
+.footer-owner {
+    font-size:9px;
+    letter-spacing:5px;
+    color:#819aa7;
+    margin-top:30px;
+}
+footer h3 {
+    font-family:'Orbitron',sans-serif;
+    color:#dce8ed;
+    letter-spacing:7px;
+    font-size:17px;
+    font-weight:500;
+    margin-top:15px;
+}
+footer .copyright {
+    color:#61727b;
+    font-size:10px;
+    margin-top:30px;
+    letter-spacing:2px;
+}
+/* REVEAL */
+.reveal {
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+/* MOBILE */
+@media(max-width:750px) {
+    nav {
+        padding:0 5%;
+        height:70px;
+    }
+    .nav-brand {
+        font-size:12px;
+        letter-spacing:2px;
+    }
+    .nav-brand svg {
+        width:25px;
+    }
+    .menu-btn {
+        display:block;
+    }
+    .nav-links {
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#071116;
+        flex-direction:column;
+        padding:25px 7%;
+        gap:25px;
+        border-bottom:1px solid var(--line);
+    }
+    .nav-links.open {
+        display:flex;
+    }
+    .nav-links a {
+        font-size:12px;
+    }
+    section {
+        padding:85px 7%;
+    }
+    .service-grid,
+    .project-grid {
+        grid-template-columns:1fr;
+    }
+    .about-text,
+    .tech-box {
+        padding:27px;
+    }
+    .tab-content {
+        padding:25px;
+    }
+    .hero h1 {
+        letter-spacing:5px;
+    }
+    .hero h2 {
+        letter-spacing:7px;
+    }
+    .hero-logo {
+        width:100px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="background"></div>
+<div class="circuit"></div>
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
+<!-- INTRO -->
+<div class="intro">
+    <div class="intro-logo">VORIN DIGITAL</div>
+    <div class="intro-line"></div>
+    <div class="intro-owner">EFE ÇABUK</div>
+    <div class="intro-caption">FOUNDER & DEVELOPER</div>
+</div>
+<!-- NAVIGATION -->
+<nav>
+<div class="nav-brand">
+    <svg viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#ffffff"/>
+                <stop offset=".45" stop-color="#8195a0"/>
+                <stop offset="1" stop-color="#e6f3fa"/>
+            </linearGradient>
+        </defs>
+        <path d="M8 8 L31 8 L50 72 L69 8 L92 8 L58 101 L42 101 Z"
+        fill="url(#metal)" stroke="#c9e5f2" stroke-width="2"/>
+        <path d="M20 18 L34 18 L50 65 L66 18 L80 18"
+        stroke="#e8f7ff" stroke-width="2" fill="none"/>
+        <path d="M36 33 L50 83 L64 33"
+        stroke="#6d98ad" stroke-width="1.5" fill="none"/>
+        <path d="M50 83 V95 M34 45 L25 45 M66 45 L75 45"
+        stroke="#d8eff9" stroke-width="1.5"/>
+    </svg>
+    VORIN DIGITAL
+</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<ul class="nav-links" id="navLinks">
+    <li><a href="#home">ANA SAYFA</a></li>
+    <li><a href="#about">HAKKIMIZDA</a></li>
+    <li><a href="#services">HİZMETLER</a></li>
+    <li><a href="#technology">TEKNOLOJİ</a></li>
+    <li><a href="#projects">PROJELER</a></li>
+    <li><a href="#contact">İLETİŞİM</a></li>
+</ul>
+</nav>
+<!-- HERO -->
+<section class="hero" id="home">
+<svg class="hero-logo" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="heroMetal" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#ffffff"/>
+            <stop offset=".5" stop-color="#8299a5"/>
+            <stop offset="1" stop-color="#eaf6fb"/>
+        </linearGradient>
+    </defs>
+    <path d="M8 8 L31 8 L50 72 L69 8 L92 8 L58 101 L42 101 Z"
+    fill="url(#heroMetal)" stroke="#d7f0fa" stroke-width="2"/>
+    <path d="M20 18 L34 18 L50 65 L66 18 L80 18"
+    stroke="#effaff" stroke-width="2" fill="none"/>
+    <path d="M36 33 L50 83 L64 33"
+    stroke="#648ba0" stroke-width="1.5" fill="none"/>
+    <path d="M50 83 V95 M34 45 L25 45 M66 45 L75 45"
+    stroke="#e1f5ff" stroke-width="1.5"/>
+</svg>
+<div class="hero-label">TECHNOLOGY • INNOVATION • FUTURE</div>
+<h1>VORIN</h1>
+<h2>DIGITAL</h2>
+<p>
+    We create digital possibilities.
+    <br>
+    Teknolojiyi, yaratıcılığı ve inovasyonu bir araya getirerek
+    geleceğin dijital dünyasına yön vermeyi hedefliyoruz.
+</p>
+<a href="#about" class="hero-button">KEŞFET</a>
+</section>
+<!-- ABOUT -->
+<section id="about" class="reveal">
+<div class="section-heading">
+    <small>WHO WE ARE</small>
+    <h2>HAKKIMIZ<span>DA</span></h2>
+    <p>
+        Teknolojiye farklı bir bakış açısı.
+        Fikirlerden geleceğe uzanan bir yolculuk.
+    </p>
+</div>
+<div class="about-content">
+    <div class="about-text">
+        <h3>VORIN DIGITAL</h3>
+        <p>
+            Vorin Digital, dijital dünyada yenilikçi fikirler
+            geliştirmek ve teknolojinin sunduğu imkanları
+            özgün projelere dönüştürmek amacıyla kurulmuş
+            bağımsız bir teknoloji markasıdır.
+        </p>
+        <p>
+            Yazılım, dijital tasarım, teknoloji ve inovasyon
+            alanlarında çalışmalar yürütmeyi hedefliyoruz.
+            Her projede kaliteyi, işlevselliği ve özgünlüğü
+            ön planda tutuyoruz.
+        </p>
+        <p>
+            Bizim için her yeni fikir, geleceğe açılan
+            yeni bir kapıdır.
+        </p>
+    </div>
+    <!-- TABS -->
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active"
+            onclick="openTab('vision',this)">VİZYONUMUZ</button>
+            <button class="tab-button"
+            onclick="openTab('mission',this)">MİSYONUMUZ</button>
+            <button class="tab-button"
+            onclick="openTab('approach',this)">YAKLAŞIMIMIZ</button>
+        </div>
+        <div class="tab-content active" id="vision">
+            <h3>OUR VISION</h3>
+            <p>
+                Dijital teknolojilerin gelişimine katkıda bulunan,
+                yenilikçi fikirleri güçlü projelere dönüştüren
+                ve uluslararası ölçekte değer üreten bir teknoloji
+                markası olmak.
+            </p>
+        </div>
+        <div class="tab-content" id="mission">
+            <h3>OUR MISSION</h3>
+            <p>
+                Teknolojiyi yaratıcı düşünceyle birleştirerek
+                kullanıcıların ihtiyaçlarına yönelik özgün,
+                kullanışlı ve sürdürülebilir dijital çözümler
+                geliştirmek.
+            </p>
+        </div>
+        <div class="tab-content" id="approach">
+            <h3>OUR APPROACH</h3>
+            <p>
+                Her projeye araştırma, planlama ve geliştirme
+                süreçleriyle yaklaşıyoruz. Detaylara önem veriyor,
+                sürekli öğrenmeyi ve kendimizi geliştirmeyi
+                temel prensip olarak benimsiyoruz.
+            </p>
+        </div>
+    </div>
+</div>
+</section>
+<!-- SERVICES -->
+<section id="services" class="reveal">
+<div class="section-heading">
+    <small>WHAT WE DO</small>
+    <h2>HİZMET<span>LERİMİZ</span></h2>
+    <p>
+        Dijital dünyanın farklı alanlarında yenilikçi
+        çözümler geliştirmeye odaklanıyoruz.
+    </p>
+</div>
+<div class="service-grid">
+    <div class="service-card">
+        <div class="service-number">01 / SOFTWARE</div>
+        <h3>YAZILIM GELİŞTİRME</h3>
+        <p>
+            Dijital ihtiyaçlara yönelik yazılım sistemleri,
+            uygulamalar ve özgün projeler geliştirmeyi hedefliyoruz.
+        </p>
+    </div>
+    <div class="service-card">
+        <div class="service-number">02 / WEB DESIGN</div>
+        <h3>WEB TASARIM</h3>
+        <p>
+            Modern arayüzler, kullanıcı deneyimi ve
+            estetik tasarım anlayışıyla dijital platformlar oluşturuyoruz.
+        </p>
+    </div>
+    <div class="service-card">
+        <div class="service-number">03 / DIGITAL</div>
+        <h3>DİJİTAL ÇÖZÜMLER</h3>
+        <p>
+            Dijital süreçleri daha verimli hale getirecek
+            yenilikçi fikirler ve sistemler üzerinde çalışıyoruz.
+        </p>
+    </div>
+    <div class="service-card">
+        <div class="service-number">04 / INNOVATION</div>
+        <h3>İNOVASYON</h3>
+        <p>
+            Yeni teknolojileri araştırıyor, geleceğe yönelik
+            projeler ve yaratıcı fikirler geliştiriyoruz.
+        </p>
+    </div>
+</div>
+</section>
+<!-- TECHNOLOGY -->
+<section id="technology" class="reveal">
+<div class="section-heading">
+    <small>OUR TECHNOLOGY</small>
+    <h2>TEKNOLOJİ<span>YAKLAŞIMIMIZ</span></h2>
+    <p>
+        Geleceğin teknolojilerini anlamak ve geliştirmek
+        için sürekli araştırma ve öğrenme.
+    </p>
+</div>
+<div class="tech-box">
+    <h3>BUILDING THE FUTURE</h3>
+    <p>
+        Vorin Digital olarak teknoloji dünyasındaki gelişmeleri
+        takip etmeyi, yeni araçları araştırmayı ve dijital
+        üretim süreçlerini sürekli geliştirmeyi önemsiyoruz.
+        <br><br>
+        Her yeni teknoloji, yeni bir fikir ve yeni bir
+        proje fırsatı sunar. Bu nedenle öğrenmeyi,
+        araştırmayı ve üretmeyi çalışmalarımızın
+        merkezinde tutuyoruz.
+    </p>
+    <div class="tech-tags">
+        <span>SOFTWARE</span>
+        <span>ARTIFICIAL INTELLIGENCE</span>
+        <span>WEB TECHNOLOGY</span>
+        <span>CYBER SECURITY</span>
+        <span>DIGITAL DESIGN</span>
+        <span>INNOVATION</span>
+    </div>
+</div>
+</section>
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+<div class="section-heading">
+    <small>OUR WORK</small>
+    <h2>PROJE<span>LERİMİZ</span></h2>
+    <p>
+        Fikirleri projelere dönüştürüyoruz.
+        Her proje yeni bir başlangıçtır.
+    </p>
+</div>
+<div class="project-grid">
+    <div class="project-card">
+        <h3>ELVA</h3>
+        <p>
+            Vorin Digital bünyesinde geliştirilen
+            projelerimizden biri.
+        </p>
+        <div class="project-status">
+            FEATURED PROJECT
+        </div>
+    </div>
+    <div class="project-card upcoming">
+        <h3>COMING SOON</h3>
+        <p>
+            Yeni fikirler, yeni teknolojiler,
+            yeni projeler.
+        </p>
+        <div class="project-status">
+            DİĞER PROJELER YOLDA
+        </div>
+    </div>
+</div>
+</section>
+<!-- FUTURE -->
+<section class="reveal">
+<div class="future-box">
+    <h3>BEYOND THE LIMITS</h3>
+    <p>
+        Gelecek, yalnızca beklenen bir zaman dilimi değildir.
+        Aynı zamanda bugün geliştirilen fikirlerin,
+        verilen emeğin ve ortaya konulan projelerin sonucudur.
+        <br><br>
+        Vorin Digital olarak hedefimiz, teknolojiyle
+        mümkün olanın sınırlarını genişletmek ve
+        geleceğe değer katacak işler üretmektir.
+    </p>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+<div class="section-heading">
+    <small>GET CONNECTED</small>
+    <h2>İLETİ<span>ŞİM</span></h2>
+    <p>
+        Vorin Digital'in dijital yolculuğunu takip edin.
+    </p>
+</div>
+<div class="contact-box">
+    <p>
+        Güncel gelişmelerimiz ve yeni projelerimiz için
+        Instagram hesabımızı takip edebilirsiniz.
+        
+        </p>
+        <p>hello@evorin.com</p>
+    <a class="instagram"
+    href="https://www.instagram.com/vorin.tr/"
+    target="_blank"
+    rel="noopener noreferrer">
+        ◎ &nbsp; @vorin.tr
+    </a>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-logo">VORIN DIGITAL</div>
+<div class="footer-owner">
+    FOUNDER & DEVELOPER
+</div>
+<h3>EFE ÇABUK</h3>
+<div class="copyright">
+    © 2026 VORIN DIGITAL. ALL RIGHTS RESERVED.
+</div>
+</footer>
+<script>
+/* MOBILE MENU */
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("open");
+}
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("open");
+    });
+});
+/* TABS */
+function openTab(tabId,button) {
+    document.querySelectorAll(".tab-content").forEach(tab => {
+        tab.classList.remove("active");
+    });
+    document.querySelectorAll(".tab-button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+    document.getElementById(tabId).classList.add("active");
+    button.classList.add("active");
+}
+/* SCROLL ANIMATION */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+},{threshold:0.1});
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+</body>
+</html>
